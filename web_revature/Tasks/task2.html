@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <link rel="stylesheet" href="../BOOTSTRAP/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../html/font awesome/fontawesome-free-6.7.2-web/css/all.css">
+    <title>To Do List</title>
+    <style>
+        .bg-danger {
+            background-image: linear-gradient(45deg, black, rgb(23, 170, 193));
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark bg-danger">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand">
+                <h1>To Do List</h1>
+            </a>
+        </div>
+    </nav>
+
+    <section class="container-fluid mt-4">
+        <div class="row ">
+            <div class="col-5 m-auto ">
+                <div class="card mt-5 ">
+                    <div class="card-header text-center text-white bg-danger">
+                        <h3>To Do List</h3>
+                    </div>
+                    <div class="card-body mt-2 ">
+                        <div>
+                            <input type="text" placeholder="Enter the task here" class="form-control" id="input-text">
+                        </div>
+                        <div>
+                            <input type="submit" style="font-family:Verdana, Geneva, Tahoma, sans-serif;"
+                                value="Add Task" class="bg-danger mt-3 text-white" id="input-submit">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container-fluid mt-4">
+        <div class="row ">
+            <div class="col-5 m-auto ">
+                <div class="card mt-5 ">
+                    <div class="card-body mt-2">
+                        <ul id="tasklist-ele">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="margin-bottom: 500px;"></footer>
+
+    <script>
+        let inputText = document.getElementById('input-text');
+        let inputSubmit = document.getElementById('input-submit');
+
+        let TaskList = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
+
+        inputSubmit.addEventListener('click', function (e) {
+            e.preventDefault();
+            let task = inputText.value;
+
+            TaskList.unshift(task);
+            localStorage.setItem('tasks', JSON.stringify(TaskList));
+            displayContent(TaskList);
+            inputText.value = "";
+
+        });
+
+        function displayContent(tasks) {
+            if (tasks.length == 0) {
+                document.getElementById('tasklist-ele').innerHTML = "Your task list is empty";
+                return;
+            }
+
+            let eachTask = '';
+            tasks.forEach((task, i) => {
+                eachTask += `
+        <li class="list-group-item list-group-item-danger mb-2">
+            <span class="fw-bold">${task}</span>
+            <button class="float-end btn" onclick="deleteTask(${i})">
+                <i class="fa-solid fa-box-archive"></i>
+            </button>
+            <button class="btn" onclick="editTask(${i})">
+               <i class="fa-solid fa-pen-to-square"></i>
+            </button> 
+        </li>`;
+            });
+
+            document.getElementById('tasklist-ele').innerHTML = eachTask;
+        }
+
+        function deleteTask(id) {
+            TaskList.splice(id, 1);
+            localStorage.setItem('tasks', JSON.stringify(TaskList));
+            displayContent(TaskList);
+        }
+
+        function editTask(id) {
+            inputText.value = TaskList[id];
+            TaskList.splice(id, 1);
+            localStorage.setItem('tasks', JSON.stringify(TaskList));
+            displayContent(TaskList);
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async and Await</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+            background-color: lightblue;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            color: white;
+            background-color: blue;
+            border-radius: 5px;
+        }
+
+        #loadingDetails {
+            margin-top: 20px;
+            font-style: italic;
+            background-color: lightgray;
+            color: black;
+        }
+
+        #userList {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>list of items</h1>
+    <button onclick="loaddetails()">Click Me</button>
+    <p id="loadingDetails"></p>
+    <ul id="userList"></ul>
+</body>
+<script>
+    async function loaddetails() {
+        const loading = document.getElementById("loadingDetails");
+        const list = document.getElementById("userList");
+
+        loading.textContent = "Loading...";
+        list.innerHTML = "";
+
+        try {
+            const response = await fetch("https://api.spacexdata.com/v4/launches/latest");
+
+            if (!response.ok) {
+                throw new Error("HTTP Error: " + response.status);
+            }
+
+            const data = await response.json();
+
+            loading.textContent = "";
+
+            const li = document.createElement("li");
+            li.textContent = `Mission Name: ${data.name}`;
+            list.appendChild(li);
+
+        } catch (error) {
+            loading.textContent = "";
+            console.error("Error while fetching data:", error.message);
+        }
+    }
+</script>
+
+</html>

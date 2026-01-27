@@ -1,0 +1,41 @@
+package com.java8;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Predicate;
+
+class Employee {
+	int id;
+	String name;
+	double salary;
+
+	Employee(int id, String name, double salary) {
+		this.id = id;
+		this.name = name;
+		this.salary = salary;
+	}
+
+	public String toString() {
+		return id + " - " + name + " - " + salary;
+	}
+}
+public class Lambda_demo2 {
+
+	public static void main(String[] args) {
+		
+		List<Employee> employees = Arrays.asList(
+				new Employee(101, "sai", 78000), 
+				new Employee(102, "nikhil", 38000),
+				new Employee(103, "mubeen", 58000),
+				new Employee(104, "harish", 78000));
+		
+		Predicate<Employee> elgibleForBonus= e -> e.salary>60000;
+		
+		for(Employee e : employees)
+		{
+			if(elgibleForBonus.test(e)) {
+				System.out.println(e.id + " - "+e.name+" is Eligible for Bonus");
+			}
+		}
+	}
+}

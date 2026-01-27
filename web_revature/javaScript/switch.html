@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <h1>switch</h1>
+    </div>
+</body>
+<!-- <script src="./switch_demo.js"> -->
+<script>
+    let num1, num2;
+    let result, operation;
+
+    num1 = parseInt(prompt("enter the first number!!!!"));
+    num2 = parseInt(prompt("enter the second number!!!!"));
+    operation = prompt("enter the operation you want in this- +, -, *, /");
+
+    switch (operation) {
+
+        case "+":
+            result = num1 + num2;
+            break;
+
+        case "-":
+            if(num1==0){
+                alert("you enter num1 as zero plz start with 1...");
+                break;
+            }
+            else{
+                result = num1 - num2;
+            break;
+            }
+
+        case "*":
+            result = num1 * num2;
+            break;
+
+        case "/":
+            result = num1 / num2;
+            break;
+
+        default:
+            console.log("invalid operation.....");
+            break;
+    }
+    alert(result);
+</script>
+
+</html>

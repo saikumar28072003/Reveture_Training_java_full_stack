@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <ul id="itm1" ></ul>
+</body>
+<script>
+    let itm=["sai","nikhil","harish","mubeen","mandeep"];
+    console.log(itm.length);
+
+    let ul_ele=document.getElementById("itm1");
+    
+    // for(let itms of itm){
+        
+    //       const list_itm=document.createElement("li");
+    //         list_itm.textContent=itms;
+    //       ul_ele.appendChild(list_itm);
+    // }
+   itm.forEach(item => {
+     const list_itm=document.createElement("li");
+     list_itm.textContent=item;
+     ul_ele.appendChild(list_itm);
+   });
+
+   let arr=["saikumar",{name:"nissi"},true,function call(){alert("welcome")},18];
+     alert(arr[0]);
+    // alert(arr[1].name);
+    // alert(arr[2]);
+    // alert(arr[3]);
+    // alert(arr[4]);
+    // alert(arr[3].call);
+
+    
+
+    
+    
+</script>
+</html>

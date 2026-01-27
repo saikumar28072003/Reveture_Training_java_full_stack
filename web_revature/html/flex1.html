@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+        }
+        .d1{
+            display: flex;
+            /* flex-direction: column; */
+            gap:30px;
+
+        }
+        .d1>div{
+            background-color: rgb(176, 23, 23);
+            color: rgb(56, 167, 154);
+            font-size: 4vw;
+            padding: 8px;
+            margin: 4px;
+
+        }
+        .a1{
+            display: flex;
+            /* flex-direction: column; */
+        }
+        .a1>div{
+            background-color: purple;
+            margin: 4px;
+            padding: 8px;
+            font-size: 3vw;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">
+       <div class="a1">a
+        <div>a1</div>
+        <div>a2</div>
+       </div>
+       <div>b</div>
+       <div>c</div>  
+      </div>
+</body>
+</html>

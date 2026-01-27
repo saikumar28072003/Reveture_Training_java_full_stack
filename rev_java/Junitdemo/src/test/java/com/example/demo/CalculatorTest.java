@@ -1,0 +1,63 @@
+package com.example.demo;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+public class CalculatorTest {
+
+	Calculator cal;
+	
+	@BeforeAll
+	static void beforeAllTests() {
+		System.out.println("⏺️ Calculator Test Suites Started");
+	}
+	
+	@BeforeEach
+	void setup() {
+		cal=new Calculator();
+	}
+	
+	@Test
+	@DisplayName("case 1")
+	void addTest() {
+		int result=cal.add(18,12);
+		assertEquals(30,result);
+	}
+	
+	@Test
+	@DisplayName("case 2")
+	void testSubtract() {
+		int result=cal.subtract(18,12);
+		assertEquals(6,result);
+	}
+	
+	@Test
+	@DisplayName("case 3")
+	void testMultiply() {
+		int result=cal.multiply(18,12);
+		assertEquals(216,result);
+	}
+	
+	@Test
+	@DisplayName("case 4")
+	void testDivide() {
+		int result=cal.divide(18,12);
+		assertEquals(1,result);
+	}
+	
+	@AfterEach
+	void tearDown() {
+		cal=null;
+		System.out.println("calculator object Destroyed");
+	}
+	@AfterAll
+	static void afterAllTests() {
+		System.out.println(" ⛔ Calculator test Suite Finished");
+	}
+}

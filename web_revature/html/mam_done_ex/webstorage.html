@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+    <form action="">
+        <input type="text" name="name" placeholder="enter your name">
+        <input type="text" name="role" placeholder="enter your role">
+        <input type="text" name="skillset" placeholder="enter your skillset">
+        <button type="submit" onclick="save()">Save</button>
+       <button type="button" onclick="read()">retrive the values</button>
+       <button type="button" onclick="localStorage.clear()">clear all</button>
+       <button type="button" onclick="remove()">remove one item</button>
+       <button type="button" onclick="alert(localStorage.length)">check how many lines</button>
+       <p id="1">user info</p>
+    </form>
+   </pre>
+
+   <script>
+
+    function $(id){
+        return document.getElementById(id);
+    }
+    function save(){
+      const u1=$("name").value;
+      const u2=$("role").value;
+      const u3=$("skillset").value;
+
+      const user={name:"sai kumar",role:"ASE",skillset:["ui/ux","java developer","sql developer"]};
+    
+     localStorage.setItem("userdata",JSON.stringify(user));
+    $("name").value="";
+    $("role").value="";
+    $("skillset").value="";
+    }
+    function read(){
+        const userinfo=JSON.parse(localStorage.getItem("userdata"));
+        $("1").textContent=localStorage.getItem("userdata");
+        console.log(userinfo);
+        console.log(userinfo.name);
+        console.log(userinfo["name"]);
+
+        $("user1").value=userinfo.name;
+        $("user2").value=userinfo.role;
+        $("user3").value=localStorage.getItem(userinfo.skillset);
+
+    }
+    function remove(){
+        const  removekey = prompt("enter the item you want to remove");
+        console.log(removekey);
+        localStorage.removeItem(removekey);
+    }
+
+   </script>
+
+</body>
+</html>

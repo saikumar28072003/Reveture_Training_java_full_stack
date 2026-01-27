@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web SQL Example</title>
+</head>
+<body>
+
+<h2>Web SQL Demo</h2>
+<button onclick="addUser()">Add User</button>
+<button onclick="showUsers()">Show Users</button>
+
+<ul id="result"></ul>
+
+<script>
+  // 1. Open database
+  var db = openDatabase(
+    'MyDB',        // Database name
+    '1.0',         // Version
+    'Test DB',     // Description
+    2 * 1024 * 1024 // Size (2MB)
+  );
+
+  // 2. Create table
+  db.transaction(function (tx) {
+    tx.executeSql(
+      'CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)'
+    );
+  });
+
+  // 3. Insert data
+  function addUser() {
+    var username = "Sai";
+    db.transaction(function (tx) {
+      tx.executeSql(
+        'INSERT INTO users (name) VALUES (?)',
+        [username]
+      );
+    });
+    alert("User added!");
+  }
+
+  // 4. Read data
+  function showUsers() {
+    var list = document.getElementById("result");
+    list.innerHTML = "";
+
+    db.transaction(function (tx) {
+      tx.executeSql(
+        'SELECT * FROM users',
+        [],
+        function (tx, results) {
+          for (var i = 0; i < results.rows.length; i++) {
+            var li = document.createElement("li");
+            li.textContent = results.rows.item(i).name;
+            list.appendChild(li);
+          }
+        }
+      );
+    });
+  }
+</script>
+
+</body>
+</html>

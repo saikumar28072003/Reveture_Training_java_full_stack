@@ -1,0 +1,5 @@
+package com.rapo;
+
+public interface EmployeeRepository {
+
+}

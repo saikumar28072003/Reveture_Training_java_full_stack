@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <form action="">
+            <input type="text" id="name" placeholder="username"><br>
+            <input type="text" id="role" placeholder="role"><br>
+            <input type="textarea" id="skills" placeholder="skillset"><br>
+            <button type="button" onclick="save()">Save</button><br>
+            <button type="button" onclick="read()">fetch data</button><br>
+            <button type="reset" onclick="sessionStorage.clear()">clear all data sessionStorage</button><br>
+            <button type="button" onclick="remove()">remove one user in sessionStorage</button><br>
+            <p id="cou">count</p>
+        </form>
+    </pre>
+    <script>
+        let count=0;
+        function $(id){
+            return document.getElementById(id);
+        }
+        
+        function save(){
+            count++;
+            const u=$("name").value;
+            const r=$("role").value;
+            const s=$("skills").value;
+            const user={username:u,role:r,skillset:s};
+            sessionStorage.setItem("username",u);
+            sessionStorage.setItem("role",r);
+            sessionStorage.setItem("skillset",s);
+            sessionStorage.setItem("userdata",JSON.stringify(user));
+            // $("cou").textContent="save button clicks:"+count;
+            $("cou").textContent=`save button clicks: ${count}`;
+           $("name").value= "";
+           $("role").value= "";
+           $("skills").value= "";
+        }
+        
+        function read(){
+            const userinfo=JSON.parse(sessionStorage.getItem("userdata"));
+            // $("1").textContent=sessionStorage.getItem("userdata");
+            console.log(userinfo);
+            console.log(userinfo.name);
+            console.log(userinfo["name"]);
+
+            $("name").value=userinfo.name;
+            $("role").value=userinfo.role;
+            $("skills").value=userinfo.skillset;
+          }
+          function remove(){
+              const  removekey = prompt("enter the item you want to remove");
+              console.log(removekey);
+              sessionStorage.removeItem(removekey);
+          }
+
+    </script>
+    
+</body>
+</html>

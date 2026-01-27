@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<title>Example</title>
+<style>
+  .spring-text {
+    color: darkslateblue;
+    animation-name: spring-text;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-play-state: running;
+    animation-fill-mode: backwards;
+  }
+  @keyframes spring-text {
+    0% {
+      letter-spacing: 1.2em;
+      color: thistle;
+    }
+    100% {
+      letter-spacing: 0.1em;
+      color: darkslateblue;
+    }
+  }
+</style>
+
+<!-- Script to pause/start the animation -->
+<script>
+  function togglePlayState(newState) {
+    document.getElementById("spring").style.animationPlayState = newState;
+  }
+</script>
+
+<h3 class="spring-text" id="spring">Animations!</h3>
+<button onclick="togglePlayState('Paused');">Pause Animation</button>
+<button onclick="togglePlayState('Running');">Continue Animation</button>

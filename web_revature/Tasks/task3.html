@@ -1,0 +1,81 @@
+<!-- space X lanch details and success status -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+            background-color: lime;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            color: rgb(121, 18, 223);
+            border-radius: 30px;
+        }
+
+        #loadingDetails {
+            margin-top: 20px;
+            font-style: italic;
+            background-color: antiquewhite;
+            color: black;
+        }
+
+        #lanchDetails {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+                
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lanch Details and info</h1>
+    <button onclick="loaddetails()">Click Me</button>
+    <p id="loadingDetails"></p>
+    <div id="lanchDetails"></div>
+
+</body>
+<script>
+    function loaddetails() {
+        const loading = document.getElementById("loadingDetails");
+        const details = document.getElementById("lanchDetails");
+
+        loading.textContent = "Loading...";
+        details.innerHTML = "";
+
+        fetch("https://api.spacexdata.com/v4/latest")
+            .then(function success(response) {
+                if (!response.ok) {
+                    throw new Error("Failed to Fetch Data");
+                }
+                return response.json();
+            })
+            .then(function (data) {
+                loading.textContent = "";
+                details.innerHTML = `<h3>Mission Name: ${data.name}</h3>`;
+            })
+            .catch(function (error) {
+                loading.textContent = "";
+                details.innerHTML = "Error loading launch data";
+                console.log("Error:", error);
+            });
+
+    }
+</script>
+
+</html>

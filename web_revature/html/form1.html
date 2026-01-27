@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../html/form1styles.css">
+</head>
+<body>
+     <header>
+      <div class="topbar">
+        <div>
+          <h1>HTML5 Forms — Login + Registration (All Form Elements)</h1>
+        </div>
+        <div class="mini">
+          Open DevTools → Console to see submitted data (demo only)
+        </div>
+      </div>
+    </header>
+    <div>
+     <div>
+        <section>
+            <h2>Real-world Login Form</h2>
+            <p>Uses: form, label, input(email/password), checkbox, button, small help text, autocomplete</p>
+
+        <form action="">
+            <fieldset>
+                <legend>sign in</legend>
+                <label for="LoginEmail">Email</label>
+                <input type="email" placeholder="enter the email" name="email" required >
+                <div>Use your work email address.</div>
+                <label for="LoginPassword">password</label>
+                <input type="password" placeholder="enter the password" name="password" required >
+                <div>Minimum 6 characters.</div>
+                <div>
+                    <span>
+                        <input type="checkbox" name="rememberMe">
+                        <label for="rememberMe">RememberMe</label>
+                    </span>
+                    <span >
+                  <input type="checkbox" />
+                  <label for="showLoginPass">Show password</label>
+                </span>
+                </div>
+                <div>
+                    <button type="submit">sign in</button>
+                    <button type="reset">Reset</button>
+                </div>
+                <div>
+                    <strong>UX tip:</strong>Login should ask only what’s needed:email + password. Keep it short.
+                </div>
+            </fieldset>
+        </form>
+     </section>
+     <section>
+        <h2>🧾 Real-world Registration Form (covers ALL major HTML5 form elements)</h2>
+        <p>Includes: fieldset/legend, input types, select+optgroup, datalist,textarea, file, range, color, date/time, output, progress, meter</p>
+      <form action="" novalidate>
+        <fieldset>
+            <legend>Personal Info</legend>
+            <div>
+                <div>
+                    <label for="fullName">fullName</label>
+                    <input type="text" placeholder="enter your fullName" name="fullName" required minlength="5">
+                    <div> As per your government ID (for invoices).</div>
+                </div>
+                <div>
+                    <label for="phone">mobile number</label>
+                    <input type="tel" name="phone" required placeholder="enter your phone number" pattern="[6-9]\d{9}">
+                    <div>India format (10 digits). Example: 9876543210</div>
+                </div>
+            </div>
+
+            <div>
+               <div>
+                  <label for="dob">Date of Birth</label>
+                  <input name="dob" type="date" required />
+                  <div>Used for age verification.</div>
+                </div>
+                <div>
+                  <label for="Color">Theme Color</label>
+                  <input name="Color"type="color"value="#0b6a3c"/>
+                  <div>Personalize your dashboard.</div>
+                </div>
+                 <label for="about">About You</label>
+              <textarea name="about"placeholder="Tell us your goal..."></textarea>
+            </div>
+        </fieldset>
+          <fieldset>
+            <legend>Account Details</legend>
+            <label for="regEmail">Email</label>
+              <input name="regEmail"type="email"placeholder="enter your email"required/>
+              
+              <label for="newPwd">Create Password</label>
+              <input name="newPwd"type="password"minlength="5" maxlength="15"/>
+              <div>5+ chars; include at least 1 number for better security.</div>
+               <div>Password strength:</div>
+               <meter value="0" min="0" max="100"></meter>
+               <div>Score: <output>0</output>/100</div>
+               <div>
+                <span>
+                    <input type="checkbox">
+                    <label for="showpwd">show password</label>
+                </span>
+               </div>
+               <label for="role">Roles</label>
+               <select name="role" id="role" required>
+                  <option value="" >select your option</option>
+                  <optgroup label="learner">
+                    <option value="student">Student</option>
+                    <option value="fresher">Fresher</option>
+                  </optgroup>
+                  <optgroup label="Professional">
+                  <option value="developer">Developer</option>
+                  <option value="tester">Tester</option>
+                  <option value="designer">UI/UX Designer</option>
+                </optgroup>
+               </select>
+               <label for="city">City (with suggestions)</label>
+               <input type="text" list="citylist" placeholder="enter your city">
+               <datalist>
+                <option value="chennai"></option>
+                <option value="banglore"></option>
+                <option value="hyderbad"></option>
+                <option value="coimboture"></option>
+                <option value="nellore"></option>
+               </datalist>
+               <div>Datalist gives suggestions but still allows any value.</div>
+          </fieldset>
+          <fieldset>
+            <legend>Preferences & Proof</legend>
+            <label for="">Learning Mode</label>
+            <div>
+                <span>
+                    <input type="radio" name="mode">
+                    <label for="modeLive">Live</label>
+                </span>
+                <span>
+                  <input name="mode" type="radio" />
+                  <label for="modeSelf">Self-paced</label>
+                </span>
+            </div>
+            <label for="">Newsletter</label>
+            <div>
+                <span>
+                    <input type="checkbox" name="newsletter" checked>
+                    <label for="newsletter">Send me updates</label>
+                </span>
+            </div>
+             <label for="exp">Experience Level (Range)</label>
+             <input type="range" min="0" max="10" value="0" step="1">
+
+             <div>0 = Beginner, 10 = Expert</div>
+              <div>Selected: <output>4  </output>/10</div>
+
+              <label for="resume">Upload Resume (PDF)</label>
+              <input name="resume" type="file" accept=".pdf" />
+
+              <div>Optional. Helps trainers understand your profile.</div>
+
+              <label for="wakeTime">Preferred Class Time</label>
+              <input name="wakeTime" type="time" />
+          </fieldset>
+          <fieldset>
+              <legend>Demo Progress (UI only)</legend>
+              <div>Simulated “profile completion” progress:</div>
+              <progress value="0" max="100"></progress>
+              <div>Completion: <output>0</output>%</div>
+            </fieldset>
+            <div>
+              <button type="submit">Create Account</button>
+              <button type="reset">Clear</button>
+              <button type="button">Fill Sample Data</button>
+            </div>
+            <div>
+              <strong>Trainer note:</strong> Client-side validation improves UX,but **server-side validation is mandatory**.
+            </div>
+             <div>
+              <div><strong>Live Output</strong></div>
+              <div>Submit to see a summary here</div>
+              <div>Name</div>
+              <div>—</div>
+              <div>Email</div>
+              <div>—</div>
+              <div>Role</div>
+              <div>—</div>
+              <div>City</div>
+              <div>—</div>
+            </div>
+      </form> 
+    </section>
+     </div>
+  </div>
+</body>
+<script src="">
+  
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <style>
+         p {
+        padding: 20px;
+        background-color: aquamarine;
+        color: blueviolet;
+        font: 20px Arial;
+      }
+    </style>
+</head>
+<body>
+     <p>Welcome to jQuery Concept</p>
+    <p>Welcome to jQuery Concept</p>
+    <p>Welcome to jQuery Concept</p>
+</body>
+<script>
+    $(document).ready(function(){
+        // $("p").click(function(){
+        $("p").dblclick(function(){
+            $(this).slideUp();
+        });
+    });
+</script>
+</html>

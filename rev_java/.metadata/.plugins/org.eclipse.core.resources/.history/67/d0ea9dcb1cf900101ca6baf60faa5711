@@ -1,0 +1,14 @@
+package com.rapo;
+
+import java.util.List;
+
+import com.user.Employee;
+
+public interface EmployeeRepository {
+
+	void save(Employee employee);
+	Employee findById(int id);
+
+	List<Employee> findAll();
+	void deleteById(int id);
+}

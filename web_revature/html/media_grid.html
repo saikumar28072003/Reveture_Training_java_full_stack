@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+
+.gd{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2vw;
+}
+.gd>div{
+    text-align: center;
+    padding: 0.5em;
+    font-size: 5vw;
+    border: 3px double black;
+}
+#a1{background: gold;}
+#a2{background: red;}
+#a3{background: blue;}
+#a4{background: firebrick;}
+.auto-fill{
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+.auto-fit{
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+    </style>
+</head>
+<body>
+    <div class="gd auto-fill">
+        <div id="a1" st>1</div>
+        <div id="a2">2</div>
+        <div id="a3">3</div>
+        <div id="a4">4</div>
+        
+    </div>
+    <div class="auto-fit gd">
+        <div id="a1" st>1</div>
+        <div id="a2">2</div>
+        <div id="a3">3</div>
+        <div id="a4">4</div>
+        
+        </div>
+</body>
+</html>

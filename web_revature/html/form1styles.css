@@ -1,0 +1,217 @@
+:root {
+        --bg: #f6f7fb;
+        --card: #fff;
+        --text: #111827;
+        --muted: #6b7280;
+        --border: #e5e7eb;
+        --brand: #0b6a3c;
+        --brand2: #14532d;
+        --warn: #b45309;
+        --danger: #b91c1c;
+        --ok: #166534;
+        --shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+        --r: 14px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui, Segoe UI, Arial;
+        background: var(--bg);
+        color: var(--text);
+      }
+      header {
+        background: var(--brand);
+        color: #fff;
+        padding: 18px 16px;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 18px;
+      }
+      header p {
+        margin: 6px 0 0;
+        opacity: 0.9;
+        font-size: 13px;
+      }
+      .wrap {
+        max-width: 1100px;
+        margin: 18px auto;
+        padding: 0 16px;
+      }
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+      @media (min-width: 980px) {
+        .grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--r);
+        box-shadow: var(--shadow);
+        padding: 16px;
+      }
+      .card h2 {
+        margin: 0 0 12px;
+        font-size: 16px;
+      }
+      .sub {
+        color: var(--muted);
+        font-size: 13px;
+        margin: 0 0 14px;
+      }
+      fieldset {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 12px;
+        margin: 0 0 12px;
+      }
+      legend {
+        padding: 0 8px;
+        color: var(--brand2);
+        font-weight: 700;
+        font-size: 13px;
+      }
+      label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        margin: 10px 0 6px;
+      }
+      .help {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 6px;
+      }
+      .row {
+        display: grid;
+        gap: 12px;
+      }
+      @media (min-width: 520px) {
+        .row.two {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: #fff;
+        font-size: 14px;
+        outline: none;
+      }
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: #86efac;
+        box-shadow: 0 0 0 4px rgba(134, 239, 172, 0.25);
+      }
+      textarea {
+        min-height: 90px;
+        resize: vertical;
+      }
+      .inline {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-top: 10px;
+        flex-wrap: wrap;
+      }
+      .inline label {
+        margin: 0;
+        font-weight: 600;
+      }
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .btns {
+        display: flex;
+        gap: 10px;
+        margin-top: 12px;
+        flex-wrap: wrap;
+      }
+      button {
+        border: 0;
+        padding: 10px 14px;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 700;
+      }
+      .primary {
+        background: var(--brand);
+        color: #fff;
+      }
+      .primary:hover {
+        filter: brightness(0.95);
+      }
+      .ghost {
+        background: #eef2ff;
+        color: #3730a3;
+      }
+      .danger {
+        background: #fee2e2;
+        color: #7f1d1d;
+      }
+      .note {
+        background: #fff7ed;
+        border: 1px solid #fed7aa;
+        border-radius: 12px;
+        padding: 10px;
+        font-size: 13px;
+        color: #7c2d12;
+        margin-top: 12px;
+      }
+      .validHint {
+        font-size: 12px;
+        margin-top: 6px;
+      }
+      .validHint.ok {
+        color: var(--ok);
+      }
+      .validHint.bad {
+        color: var(--danger);
+      }
+      .mini {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .kv {
+        display: grid;
+        grid-template-columns: 160px 1fr;
+        gap: 8px;
+        margin-top: 10px;
+      }
+      .kv div {
+        padding: 8px 10px;
+        border: 1px dashed var(--border);
+        border-radius: 12px;
+        background: #f9fafb;
+        font-size: 13px;
+      }
+      progress {
+        width: 100%;
+        height: 14px;
+      }
+      meter {
+        width: 100%;
+        height: 16px;
+      }
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
