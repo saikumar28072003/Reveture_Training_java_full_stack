@@ -101,7 +101,7 @@ public class EmployeeServiceTest {
 	employeeService.addEmployee(employee);
 	verify(employeeRepository).save(captor.capture());
 	Employee captured = captor.getValue();
-	assertEquals("Tin", captured.getName());
+	assertEquals("Tina", captured.getName());
 	assertEquals(50000, captured.getSalary());
 	}
 }
