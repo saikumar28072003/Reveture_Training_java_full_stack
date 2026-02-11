@@ -1,6 +1,5 @@
 package com.example.demo.entity;
 
-
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
@@ -13,9 +12,9 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="employee")
+@Table(name="employee1")
 public class Employee {
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
@@ -35,7 +34,6 @@ public class Employee {
 		this.name = name;
 		this.email = email;
 	}
-	
 	
 	public long getId() {
 		return id;
@@ -61,5 +59,4 @@ public class Employee {
 			profile.setEmployee(this);
 		}
 	}
-	
 }
